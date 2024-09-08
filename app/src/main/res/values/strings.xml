@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">GrckiKinoMozzart</string>
+
+    <string name="error">Greska</string>
+    <string name="retry_btn_text">Probaj opet</string>
+    <string name="back_btn_text">Idi nazad</string>
+
+    <!--  Upcoming draws screen  -->
+    <string name="upcoming_draws_header_title">Grcki kino (20/80)</string>
+    <string name="upcoming_draws_time_title">Vreme izvlacenja</string>
+    <string name="upcoming_draws_countdown_title">Preostalo za uplatu</string>
+    <string name="expired_draw_toast">Kino runda je vec pocela.</string>
+    <string name="refresh_btn_text">Osvezi</string>
+
+    <!-- Main screen - Draws -->
+    <string name="tab_item_1">Talon</string>
+    <string name="tab_item_2">Dodatne igre</string>
+    <string name="tab_item_3">"Izvlacenje uzivo"</string>
+    <string name="tab_item_4">"Rezultati izvlacenja"</string>
+    <string name="tab_item_5">"Brzzi Kino"</string>
+    <string name="not_available_toast">Nije dostupno.</string>
+    <!-- Draw play -->
+    <string name="draw_play_random_pick">Slucajni odabir</string>
+    <string name="draw_play_selected_limit">Brojeva: %d</string>
+    <string name="draw_play_info">Vreme izvlacenja: %s | Kolo: %d</string>
+    <string name="draw_play_expired_toast">Izvlacenje za kolo %d je pocelo.</string>
+    <!-- Draw live -->
+</resources>
