@@ -7,7 +7,6 @@ import com.luka.grcki_kino_mozzart.EventForUi
 import com.luka.grcki_kino_mozzart.R
 import com.luka.grcki_kino_mozzart.ui.feature_main.draw_play.PlayDrawViewModel.Companion.TOTAL_BALL_COUNT
 import com.luka.grcki_kino_mozzart.ui.feature_main.draw_play.model.BallNumber
-import com.luka.grcki_kino_mozzart.utils.generateRandomNumbers
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.update
@@ -63,7 +62,7 @@ class PlayDrawViewModel @Inject constructor(
 
         // Generate random numbers
         val ballNumberLimit = state.value.selectedBallNumberLimit
-        val randomNumbers = generateRandomNumbers(startLimit = 1, endLimit = ballNumberLimit, count = TOTAL_BALL_COUNT)
+        val randomNumbers = (1..TOTAL_BALL_COUNT).shuffled().take(ballNumberLimit)
         selectedNumbers.clear()
         selectedNumbers.addAll(randomNumbers)
 
