@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,6 +35,7 @@ import com.luka.grcki_kino_mozzart.ui.common.dialog.ErrorDialog
 import com.luka.grcki_kino_mozzart.ui.common.dialog.LoadingDialog
 import com.luka.grcki_kino_mozzart.ui.feature_main.TabBarItem
 import com.luka.grcki_kino_mozzart.ui.feature_upcoming.UpcomingDrawsScreenEventForUi
+import com.luka.grcki_kino_mozzart.ui.theme.MozzartBlue
 
 @Composable
 fun PlayDrawScreen(
@@ -116,7 +118,9 @@ fun TopNavigationBar(
     selectedTabIndex: Int,
     onTabClick: (tabIndex: Int, route: String) -> Unit,
 ) {
-    NavigationBar() {
+    NavigationBar(
+        containerColor = MozzartBlue,
+    ) {
         tabs.forEachIndexed { index, tabBarItem ->
             NavigationBarItem(
                 selected = selectedTabIndex == index,
@@ -139,10 +143,19 @@ fun TopNavigationBar(
                         Text(
                             text = stringResource(id = tabBarItem.title),
                             textAlign = TextAlign.Center,
-                            color = if (selectedTabIndex == index) Color.Yellow else Color.Black
+                            color = if (selectedTabIndex == index) Color.Yellow else Color.White
                         )
                     }
-                }
+                },
+                colors = NavigationBarItemColors(
+                    selectedIndicatorColor = MozzartBlue,
+                    selectedTextColor = MozzartBlue,
+                    selectedIconColor = MozzartBlue,
+                    unselectedIconColor = Color.White,
+                    unselectedTextColor = Color.White,
+                    disabledIconColor = MozzartBlue,
+                    disabledTextColor = MozzartBlue
+                )
             )
         }
     }
