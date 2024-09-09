@@ -1,7 +1,8 @@
 package com.luka.grcki_kino_mozzart.ui.feature_main.draw_play
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
@@ -36,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import com.luka.grcki_kino_mozzart.R
 import com.luka.grcki_kino_mozzart.ui.feature_main.draw_play.PlayDrawViewModel.Companion.BALL_LIMITS
 import com.luka.grcki_kino_mozzart.ui.feature_main.draw_play.model.BallNumber
+import com.luka.grcki_kino_mozzart.ui.theme.MozzartBlue
+import com.luka.grcki_kino_mozzart.utils.extensions.clickableWithoutRipple
 
 @Composable
 fun PickBallNumbersLayout(
@@ -103,15 +107,18 @@ private fun BallNumberLayout(
     isMarked: Boolean,
     onClicked: () -> Unit
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     Box(
         modifier = modifier
-            .clickable {
-//                isMarked = !isMarked
+            .clickableWithoutRipple(interactionSource) {
                 onClicked()
             }
-            .background(if (isMarked) Color.Green else Color.Transparent)
+            .border(
+                width = 2.dp,
+                color = if (isMarked) MozzartBlue else Color.Transparent,
+                shape = CircleShape
+            )
             .padding(vertical = 8.dp)
-//            .clip(CircleShape)
     ) {
         Text(
             modifier = Modifier.align(Alignment.Center),
